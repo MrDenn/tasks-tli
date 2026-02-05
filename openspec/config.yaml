@@ -3,18 +3,71 @@ schema: spec-driven
 # Project context (optional)
 # This is shown to AI when creating artifacts.
 # Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  # Silver Tasks CLI - Personal Task Manager
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  ## Purpose
+  A command-line task management tool designed for university students and personal productivity.
+  Optimized for quick task entry and prioritized viewing of deadlines across multiple subjects/categories.
+
+  ## Domain Context
+  - Primary users: University students managing coursework across multiple subjects
+  - Secondary use: Personal tasks, plans tracking, miscellaneous to-dos
+  - User environment: OpenSUSE Linux, terminal-driven workflow
+  - Design philosophy: Minimize keystrokes, maximize clarity, keyboard-first interface
+
+  ## Tech Stack
+  - Language: Rust 1.85+ (Rust 2021 edition)
+  - CLI Framework: clap v4 (derive API for subcommands)
+  - Serialization: serde + serde_json
+  - Date/Time: chrono
+  - Storage: Local JSON file persistence
+  - Output formatting: Table-based display (comfy-table or similar)
+
+  ## Binary Installation
+  - Binary name: silver-tasks
+  - Install to: ~/.local/bin/ (for personal use)
+  - Development: Test with 'cargo run -- <subcommand>' (no installation needed)
+
+  ## Architecture Principles
+  - Modular design: Separate concerns (models, storage, commands, UI)
+  - Single responsibility: Each module handles one aspect
+  - Persistence strategy: File-based storage in user's home directory
+  - Command pattern: Subcommands for different operations
+
+  ## Code Conventions
+  - Error handling: Use anyhow::Result<T> for ergonomic error propagation
+  - Data structures: Derive Debug, Clone, Serialize, Deserialize for all models
+  - Date handling: Use chrono types (NaiveDate, DateTime<Local>)
+  - Code style: Follow rustfmt defaults and clippy recommendations
+  - Testing: Write unit tests for business logic, integration tests for CLI
+
+  ## Module Organization Pattern
+  - src/main.rs: CLI entry point and argument parsing
+  - src/models.rs: Core data structures
+  - src/storage.rs: Persistence layer abstraction
+  - src/commands/: Console command processing, one file per command (or major command group)
+  - Separate concerns: Keep I/O, business logic, and UI separate
+
+  ## Output Design Principles
+  - Tabular display for list views
+  - Human-readable date formats
+  - Consistent ID representation across all commands
+  - Clear, actionable error messages
+
+rules:
+  proposal:
+    - Keep proposals focused on a single capability area
+    - Include motivation explaining user value
+    - Specify impact on existing features
+
+  tasks:
+    - Break into 30-60 minute implementation chunks
+    - Order by dependency (models → storage → logic → UI)
+    - Each task should be independently testable
+
+  spec:
+    - Use GIVEN/WHEN/THEN format for all scenarios
+    - Include realistic examples (actual subject names, dates)
+    - Specify exact CLI syntax for command scenarios
+    - Define both success and error cases
