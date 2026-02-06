@@ -24,6 +24,9 @@ enum Commands {
         /// Optional deadline (DD.MM.YYYY, YYYY-MM-DD, or DD/MM/YYYY)
         deadline: Option<String>,
     },
+
+    /// List tasks grouped by tag and sorted by deadline
+    List {},
 }
 
 fn main() -> anyhow::Result<()> {
@@ -37,8 +40,10 @@ fn main() -> anyhow::Result<()> {
         } => {
             commands::add::add_task(name, tag, deadline)?;
         }
+        Commands::List {} => {
+            commands::list::list_tasks()?;
+        }
     }
 
     Ok(())
 }
-

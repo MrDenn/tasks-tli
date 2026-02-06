@@ -50,8 +50,7 @@ pub fn load_tags() -> Result<Vec<Tag>> {
     }
 
     let content = fs::read_to_string(&path).context("Failed to read tags file")?;
-    let tags: Vec<String> = serde_json::from_str(&content)
-        .context("Failed to parse tags file")?;
+    let tags: Vec<String> = serde_json::from_str(&content).context("Failed to parse tags file")?;
     let tags = tags.into_iter().map(Tag::new).collect();
     Ok(tags)
 }
@@ -141,4 +140,3 @@ mod tests {
         assert!(!tag_exists(&tags, "Physics"));
     }
 }
-
