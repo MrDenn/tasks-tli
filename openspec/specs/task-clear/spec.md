@@ -1,4 +1,9 @@
-## ADDED Requirements
+# Task Clear Command
+
+## Purpose
+Permanently remove all tasks marked as completed from storage upon user's request to keep the task list clean and manageable.
+
+## Requirements
 
 ### Requirement: Clear all completed tasks
 The system SHALL provide a `tasks clear` command that permanently deletes all completed tasks from storage.
@@ -20,19 +25,4 @@ The system SHALL provide a `tasks clear` command that permanently deletes all co
 - **WHEN** user executes `tasks clear`
 - **THEN** no error occurs
 - **AND** system displays message: "No completed tasks to clear"
-
-### Requirement: Confirm before clearing tasks
-The system MAY require user confirmation before permanently deleting completed tasks to prevent accidental data loss.
-
-#### Scenario: User confirms clearing completed tasks
-- **GIVEN** there are completed tasks
-- **WHEN** user executes `tasks clear` and confirms the action
-- **THEN** all completed tasks are permanently deleted
-- **AND** system displays confirmation message
-
-#### Scenario: User cancels clearing
-- **GIVEN** there are completed tasks
-- **WHEN** user executes `tasks clear` but cancels the confirmation
-- **THEN** no tasks are deleted
-- **AND** system displays cancellation message
 

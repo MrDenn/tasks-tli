@@ -1,4 +1,9 @@
-## MODIFIED Requirements
+# Task List Command
+
+## Purpose
+Display a comprehensive list of all tasks, including both active and completed ones, in a structured format grouped by their associated tags. This allows users to easily view and differentiate between pending and completed tasks while maintaining organization by tag.
+
+## Requirements
 
 ### Requirement: Display tasks grouped by tag
 The system SHALL display all tasks organized into groups, where each group is labeled with a tag name and contains tasks belonging to that tag. Completed tasks appear in the same groups but with distinct formatting.

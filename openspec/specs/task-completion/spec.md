@@ -1,4 +1,9 @@
-## ADDED Requirements
+# Task Remove Command
+
+## Purpose
+Allow users to mark tasks as completed without permanently deleting them, enabling better tracking of completed work and the option to clear completed tasks later.
+
+## Requirements
 
 ### Requirement: Mark single or multiple tasks as completed
 The system SHALL accept one or more task IDs via the `tasks remove {task_id...}` command and mark each as completed instead of permanently deleting them.

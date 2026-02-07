@@ -1,9 +1,9 @@
-# Task CRUD Operations
+# Task Add Command
 
 ## Purpose
-Create, read, update, and delete tasks with tags and deadlines.
+Create and store tasks upon user's request, which will then be used for all other operations and commands.
 
-## Add Operation
+## Requirements
 
 ### Requirement: Create task with tag and deadline
 The system SHALL create tasks via the add command.
