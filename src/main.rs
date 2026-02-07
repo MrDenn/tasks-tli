@@ -27,6 +27,15 @@ enum Commands {
 
     /// List tasks grouped by tag and sorted by deadline
     List {},
+
+    /// Mark task(s) as completed (soft delete). Accepts one or more task IDs
+    Remove {
+        /// Task IDs to mark completed (space-separated)
+        ids: Vec<String>,
+    },
+
+    /// Permanently delete all completed tasks
+    Clear {},
 }
 
 fn main() -> anyhow::Result<()> {
@@ -42,6 +51,12 @@ fn main() -> anyhow::Result<()> {
         }
         Commands::List {} => {
             commands::list::list_tasks()?;
+        }
+        Commands::Remove { ids } => {
+            commands::remove::remove_tasks(ids)?;
+        }
+        Commands::Clear {} => {
+            commands::clear::clear_tasks()?;
         }
     }
 

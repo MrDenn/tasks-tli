@@ -86,3 +86,4 @@ The system SHALL display both active and completed task rows formatted, such tha
     054 - ~~Submit assignment~~    ~~24.02.2026~~
     102 - Read chapter 3           20.03.2026
 ```
+

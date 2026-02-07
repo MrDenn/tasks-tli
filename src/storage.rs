@@ -1,6 +1,5 @@
 use crate::models::{Tag, Task};
 use anyhow::{Context, Result};
-use serde_json;
 use std::fs;
 use std::path::PathBuf;
 

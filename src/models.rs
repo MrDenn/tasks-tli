@@ -12,6 +12,9 @@ pub struct Task {
     pub tag: String,
     /// Optional deadline, stored as YYYY-MM-DD
     pub deadline: Option<NaiveDate>,
+    /// Completed flag - true when task is marked completed. Default false when absent in storage.
+    #[serde(default)]
+    pub completed: bool,
 }
 
 /// Represents a tag for categorizing tasks
@@ -29,6 +32,7 @@ impl Task {
             name,
             tag,
             deadline,
+            completed: false,
         }
     }
 
