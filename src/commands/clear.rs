@@ -22,7 +22,6 @@ pub fn clear_tasks() -> Result<()> {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::models::Task;
 
     #[test]
